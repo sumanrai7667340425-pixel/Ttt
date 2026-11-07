@@ -1,0 +1,6 @@
+{
+  "name": "Toing by Swiggy - Delivery & Daily Income Portal",
+  "description": "Food Delivery Ka Naya Way - User Login, Daily Income Plans, Team Referral & Secure UPI Payment Gateway.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

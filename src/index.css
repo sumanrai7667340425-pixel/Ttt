@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #eef2ef;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(25, 135, 55, 0.25);
+  border-radius: 9999px;
+}
+
+/* -------------------------------------------------------------
+   Button Animations (Login, Register, Official Channel, Buy now,
+   Deposit, Withdrawal, Recharge, Online, Channel)
+---------------------------------------------------------------- */
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  40%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 6px 18px rgba(25, 135, 55, 0.35);
+  }
+  50% {
+    box-shadow: 0 8px 26px rgba(25, 135, 55, 0.65), 0 0 12px rgba(46, 184, 67, 0.45);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Primary CTA Button with Shimmer & Glow Animation (Login, Register, Buy now, Official Channel, Withdrawal Submit) */
+.btn-primary-animated {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.btn-primary-animated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  animation: shimmerSweep 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.btn-primary-animated:hover {
+  transform: translateY(-2px) scale(1.015);
+  filter: brightness(1.06);
+}
+
+.btn-primary-animated:active {
+  transform: translateY(1px) scale(0.97);
+  filter: brightness(0.95);
+}
+
+/* Quick Action Buttons (Recharge, Withdraw, Online, Channel) */
+.btn-quick-animated {
+  position: relative;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+.btn-quick-animated:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(25, 135, 55, 0.16);
+  border-color: rgba(25, 135, 55, 0.45);
+}
+
+.btn-quick-animated:active {
+  transform: translateY(1px) scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-quick-animated:hover .icon-bounce {
+  animation: iconFloat 0.8s ease-in-out infinite;
+}
+
+/* Profile Deposit / Withdraw Buttons */
+.btn-balance-action {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-balance-action::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmerSweep 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.btn-balance-action:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.05);
+}
+
+.btn-balance-action:active {
+  transform: translateY(1px) scale(0.96);
+}
